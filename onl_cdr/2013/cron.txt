@@ -1,0 +1,6 @@
+#
+# CDR crontab on merger
+#
+56 * * * * /home/na62cdr/cdr/onl_cdr/mymaster_cron.pl >> /tmp/ccf/onl_cdr/master.log
+3,33 * * * * /home/na62cdr/cdr/onl_cdr/inspect_online.pl > /tmp/ccf/cdr/inspect.log 2>&1
+30 * * * * /home/na62cdr/cdr/onl_cdr/logwrapper.pl > /dev/null 2>&1
