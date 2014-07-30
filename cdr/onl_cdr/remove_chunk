@@ -1,0 +1,59 @@
+#!/usr/bin/tclsh
+
+set rfdiopath "/castor/cern.ch/na62/data/2012/raw/tmp"
+
+if { $argc == 1 } {
+  set chunkname [ lindex $argv 0]
+} else {
+  error "usage: remove_chunk cdrxxxxx-xxxxx.dat"
+}
+
+if {[regexp {^cdr([\d][\d])([\d]*)-([\d]*)\.dat$} $chunkname dummy catchnb chknb runnb] != 1} {
+  error "given name $chunkname not with the format cdrxxxxx-xxxxx.dat"
+}
+
+puts "catchnb $catchnb chknb $chknb runnb $runnb"
+
+
+#set oldchunkname [format {cdr%s-%d_%03d.raw} $catchnb $runnb $chknb]
+if { $chknb != "" } {
+  set oldchunkname [format {cdrpccoeb%s-%d.%s.raw} $catchnb $runnb $chknb]
+} else {
+  set oldchunkname [format {cdrpccoeb%s-%d.raw} $catchnb $runnb $chknb]
+}
+set rfioname [format {cdr%s%03d-%d.raw} $catchnb $chknb $runnb]
+# set obpath [format {/shift/pccoeb%s/data01/objsrvvy} $catchnb]
+set obpath "/data"
+
+set globval [ catch { glob -directory "$obpath/bkm" "*/$chunkname" "*/$oldchunkname" } flist ]
+if { $globval != 0 } { set flist ""; puts "no bookmark for $chunkname" }
+
+set rfiofile "$rfdiopath/$rfioname"
+set resval [ catch { exec rfdir $rfiofile } result]
+if { $resval != 0 } { set rfiofile "" }
+
+puts "Delete $obpath/cdr/$chunkname $flist $rfiofile ? (y/n)"
+gets stdin answ
+
+if {$answ == "y"} {
+  puts "deleting..."
+} else {
+  puts "deletion cancelled"
+  exit
+}
+
+puts "deleting data file $obpath/cdr/$chunkname"
+file delete "$obpath/cdr/$chunkname"
+foreach fname $flist {
+  puts "deleting bookmark file $fname"
+  file delete $fname
+}
+if {$rfiofile != ""} {
+  puts "deleting castor file $rfiofile"
+  exec rfrm $rfiofile
+}
+
+puts "done"
+
+exit
+

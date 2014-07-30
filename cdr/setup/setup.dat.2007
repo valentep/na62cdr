@@ -1,0 +1,427 @@
+#########################################################################
+#
+# CCF configuration file
+#
+#########################################################################
+# $Id: setup.dat.2004,v 1.1 2004/05/04 17:52:59 neyret Exp $
+#
+# Valid keywords start in column 1
+#
+# RCC defines the run control console (the machine sync the GDCs)
+# GDC fake global data collector specifications (online event builder)
+#     port = socket to receive commands from the run control console
+#     ID = GDC ID (used to identify the source and to label datafiles)
+# BKM bookmark root directory
+# CDR target directory for online data (CCF machines)
+# RAW target directory for database of raw data
+# CPU list of CPU clients machines
+# RID remote installation directory for local copies of ccf software on all nodes
+# REP the location of compass repository 
+#
+# RCC <hostname>
+# GDC <hostname> <online_data_dir> port <port> ID <ID>
+# BKM <hostname> <online_data_dir>
+# CDR <hostname> <online_data_dir>
+# RAW <hostname> <online_data_dir>
+#
+# FDB::BOOT boot file name (full path)
+#
+# <online_data_dir> is of the form:
+# /roco/<hostname>/data<nn>/objsrvvy/bkm for online machines
+# /roco/<hostname>/data<nn>/objsrvvy/cdr for online machines
+# /shift/<hostname>/data<nn>/objsrvvy/bkm for CCF machines
+# /shift/<hostname>/data<nn>/objsrvvy/cdr for CCF machines
+# /shift/<hostname>/data<nn>/objsrvvy/na58 for CCF machines
+#
+# The socket port to be used to collect the monitor information
+# and the host name of the collector machine have to be provided 
+# like this
+# MON::SOCKETPORT 1234
+# MON::COLLECTOR mypc
+# MON::LISTENPORT port for sysmon incoming requests
+# MON::WATCHLIST rfiod rfcp ooams 
+#                      programs to be counted by sysmon
+# MON::SMUPDATE 120 Sysmon data update frequency in seconds
+# MON::LMUPDATE 120 Lockmon repetition rate in seconds
+# MON::PMUPDATE 120 Procmon repetition rate in seconds
+# You are supposed to change them only before starting a simulation...
+#
+# The socket port to be used to collect the stage2watch
+# and the host name of the collector machine (running
+# submitStage3) have to be provided like this
+# ST2::SOCKETPORT 1235
+# ST2::COLLECTOR mypc
+# ST2::LISTENPORT port for sysmon incoming requests
+# ST2::UPDATE 120 Procmon repetition rate in seconds
+# You are supposed to change them only before starting a simulation...
+#
+# If you use COF simulation, you should specify number of events
+# and mean size (in kB) using the following keys:
+# COF::NEVENT
+# COF::KBSIZE
+# Also the run duration in seconds should be provided
+# COF::RUNTIME
+# and the first run number
+# COF::RUNNUMBER
+#
+# LHCXXTOP is the lhc software top directory
+# RID remote installation directory for local copies of ccf software on all nodes
+# REP the location of compass repository 
+#
+#########################################################################
+#
+#  entries for 2007
+#
+#
+#  BKM pccoeb12 /shift/pccoeb12/data01/objsrvvy/bkm
+#
+BKM pccoeb09 /data/bkm
+BKM pccoeb10 /data/bkm
+BKM pccoeb11 /data/bkm
+BKM pccoeb12 /data/bkm
+BKM pccoeb13 /data/bkm
+BKM pccoeb14 /data/bkm
+BKM pccoeb15 /data/bkm
+BKM pccoeb16 /data/bkm
+BKM pccoeb17 /data/bkm
+BKM pccoeb18 /data/bkm
+BKM pccoeb19 /data/bkm
+BKM pccoeb20 /data/bkm
+BKM pccoeb21 /data/bkm
+BKM pccoeb22 /data/bkm
+BKM pccoeb23 /data/bkm
+BKM pccoeb24 /data/bkm
+BKM pccoeb25 /data/bkm
+BKM pccoeb26 /data/bkm
+BKM pccoeb27 /data/bkm
+BKM pccoeb28 /data/bkm
+BKM pccoeb29 /data/bkm
+BKM pccoeb30 /data/bkm
+BKM pccoeb31 /data/bkm
+BKM pccoeb32 /data/bkm
+BKM pccoeb33 /data/bkm
+#
+BKM pccoeb01 /data/bkm
+BKM pccoeb03 /data/bkm
+BKM pccorb17 /data/bkm
+BKM pccoeb10 /data/bkm
+BKM pccoeb11 /data/bkm
+BKM pccoeb16 /data/bkm
+#
+#
+GDC pccoeb09 /data/cdr port 1401 ID 1012
+GDC pccoeb10 /data/cdr port 1401 ID 1012
+GDC pccoeb11 /data/cdr port 1401 ID 1012
+GDC pccoeb12 /data/cdr port 1401 ID 1012
+GDC pccoeb13 /data/cdr port 1401 ID 1012
+GDC pccoeb14 /data/cdr port 1401 ID 1012
+GDC pccoeb15 /data/cdr port 1401 ID 1012
+GDC pccoeb16 /data/cdr port 1401 ID 1012
+GDC pccoeb17 /data/cdr port 1401 ID 1012
+GDC pccoeb18 /data/cdr port 1401 ID 1012
+GDC pccoeb19 /data/cdr port 1401 ID 1012
+GDC pccoeb20 /data/cdr port 1401 ID 1012
+GDC pccoeb21 /data/cdr port 1401 ID 1012
+GDC pccoeb22 /data/cdr port 1401 ID 1012
+GDC pccoeb23 /data/cdr port 1401 ID 1012
+GDC pccoeb24 /data/cdr port 1401 ID 1012
+GDC pccoeb25 /data/cdr port 1401 ID 1012
+GDC pccoeb26 /data/cdr port 1401 ID 1012
+GDC pccoeb27 /data/cdr port 1401 ID 1012
+GDC pccoeb28 /data/cdr port 1401 ID 1012
+GDC pccoeb29 /data/cdr port 1401 ID 1012
+GDC pccoeb30 /data/cdr port 1401 ID 1012
+GDC pccoeb31 /data/cdr port 1401 ID 1012
+GDC pccoeb32 /data/cdr port 1401 ID 1012
+GDC pccoeb33 /data/cdr port 1401 ID 1012
+#
+GDC pccoeb01 /data/cdr port 1401 ID 1012
+GDC pccoeb03 /data/cdr port 1401 ID 1012
+GDC pccorb17 /data/cdr port 1401 ID 1012
+GDC pccoeb10 /data/cdr port 1401 ID 1012
+GDC pccoeb11 /data/cdr port 1401 ID 1012
+GDC pccoeb16 /data/cdr port 1401 ID 1012
+#
+#
+CASTOR::RAW /castor/cern.ch/compass/data/2007/raw/tmp
+#
+CASTOR::HOSTRAW pccoeb20 /castor/cern.ch/compass/data/2007/raw/tmp
+CASTOR::HOSTRAW pccoeb21 /castor/cern.ch/compass/data/2007/raw/tmp
+CASTOR::HOSTRAW pccoeb22 /castor/cern.ch/compass/data/2007/raw/tmp
+CASTOR::HOSTRAW pccoeb23 /castor/cern.ch/compass/data/2007/raw/tmp
+CASTOR::HOSTRAW pccoeb24 /castor/cern.ch/compass/data/2007/raw/tmp
+CASTOR::HOSTRAW pccoeb25 /castor/cern.ch/compass/data/2007/raw/tmp
+CASTOR::HOSTRAW pccoeb26 /castor/cern.ch/compass/data/2007/raw/tmp
+CASTOR::HOSTRAW pccoeb27 /castor/cern.ch/compass/data/2007/raw/tmp
+CASTOR::HOSTRAW pccoeb28 /castor/cern.ch/compass/data/2007/raw/tmp
+CASTOR::HOSTRAW pccoeb29 /castor/cern.ch/compass/data/2007/raw/tmp
+CASTOR::HOSTRAW pccoeb30 /castor/cern.ch/compass/data/2007/raw/tmp
+CASTOR::HOSTRAW pccoeb31 /castor/cern.ch/compass/data/2007/raw/tmp
+CASTOR::HOSTRAW pccoeb32 /castor/cern.ch/compass/data/2007/raw/tmp
+CASTOR::HOSTRAW pccoeb33 /castor/cern.ch/compass/data/2007/raw/tmp
+#
+CASTOR::HOSTRAW pccoeb01 /castor/cern.ch/compass/data/2007/raw/RPD
+CASTOR::HOSTRAW pccoeb11 /castor/cern.ch/compass/data/2007/raw/RPD
+CASTOR::HOSTRAW pccorb17 /castor/cern.ch/compass/data/2007/raw/ecalT9
+CASTOR::HOSTRAW pccoeb16 /castor/cern.ch/compass/data/2007/raw/ecalT9
+CASTOR::HOSTRAW pccoeb03 /castor/cern.ch/compass/data/2007/raw/thGEM
+CASTOR::HOSTRAW pccoeb10 /castor/cern.ch/compass/data/2007/raw/thGEM
+#
+#
+#
+#########################################################################
+#
+#  #  entries for 2006
+#  #
+#  #
+#  #  BKM pccoeb12 /shift/pccoeb12/data01/objsrvvy/bkm
+#  #
+#  BKM pccoeb09 /data/bkm
+#  BKM pccoeb10 /data/bkm
+#  BKM pccoeb11 /data/bkm
+#  BKM pccoeb12 /data/bkm
+#  BKM pccoeb13 /data/bkm
+#  BKM pccoeb14 /data/bkm
+#  BKM pccoeb15 /data/bkm
+#  BKM pccoeb16 /data/bkm
+#  BKM pccoeb17 /data/bkm
+#  BKM pccoeb18 /data/bkm
+#  BKM pccoeb19 /data/bkm
+#  BKM pccoeb20 /data/bkm
+#  BKM pccoeb21 /data/bkm
+#  BKM pccoeb22 /data/bkm
+#  BKM pccoeb23 /data/bkm
+#  BKM pccoeb24 /data/bkm
+#  BKM pccoeb25 /data/bkm
+#  BKM pccoeb26 /data/bkm
+#  BKM pccoeb27 /data/bkm
+#  BKM pccoeb28 /data/bkm
+#  BKM pccoeb29 /data/bkm
+#  BKM pccoeb30 /data/bkm
+#  BKM pccoeb31 /data/bkm
+#  BKM pccoeb32 /data/bkm
+#  BKM pccoeb33 /data/bkm
+#  #
+#  #
+#  #
+#  GDC pccoeb09 /data/cdr port 1401 ID 1012
+#  GDC pccoeb10 /data/cdr port 1401 ID 1012
+#  GDC pccoeb11 /data/cdr port 1401 ID 1012
+#  GDC pccoeb12 /data/cdr port 1401 ID 1012
+#  GDC pccoeb13 /data/cdr port 1401 ID 1012
+#  GDC pccoeb14 /data/cdr port 1401 ID 1012
+#  GDC pccoeb15 /data/cdr port 1401 ID 1012
+#  GDC pccoeb16 /data/cdr port 1401 ID 1012
+#  GDC pccoeb17 /data/cdr port 1401 ID 1012
+#  GDC pccoeb18 /data/cdr port 1401 ID 1012
+#  GDC pccoeb19 /data/cdr port 1401 ID 1012
+#  GDC pccoeb20 /data/cdr port 1401 ID 1012
+#  GDC pccoeb21 /data/cdr port 1401 ID 1012
+#  GDC pccoeb22 /data/cdr port 1401 ID 1012
+#  GDC pccoeb23 /data/cdr port 1401 ID 1012
+#  GDC pccoeb24 /data/cdr port 1401 ID 1012
+#  GDC pccoeb25 /data/cdr port 1401 ID 1012
+#  GDC pccoeb26 /data/cdr port 1401 ID 1012
+#  GDC pccoeb27 /data/cdr port 1401 ID 1012
+#  GDC pccoeb28 /data/cdr port 1401 ID 1012
+#  GDC pccoeb29 /data/cdr port 1401 ID 1012
+#  GDC pccoeb30 /data/cdr port 1401 ID 1012
+#  GDC pccoeb31 /data/cdr port 1401 ID 1012
+#  GDC pccoeb32 /data/cdr port 1401 ID 1012
+#  GDC pccoeb33 /data/cdr port 1401 ID 1012
+#  #
+#  #
+#  #
+#  CASTOR::RAW /castor/cern.ch/compass/data/2006/raw/test
+#  #
+#
+#
+#
+#
+#
+#
+#########################################################################
+#
+#  old 2004 entries
+#
+#
+#  #
+#  LHCXXTOP /afs/cern.ch/sw/lhcxx
+#  #
+#  #
+#  OBJY_VERS 6.1.3
+#  #OBSP_VERS 2.1
+#  #
+#  HEPO_VERS 0.3.2.10
+#  #
+#  CASTOR_VERS 1.3.3.0
+#  #
+#  RID /usr/local/compass
+#  REP /afs/cern.ch/compass/repository
+#  #
+#  FDB::BOOT /usr/local/compass/P2A/P2A.2002.BOOT
+#  #
+#  # CASTOR::RAW /castor/cern.ch/compass/data/2003/raw/test
+#  # CASTOR::DMP /castor/cern.ch/compass/data/2003/dump/test
+#  CASTOR::RAW /castor/cern.ch/compass/data/2004/raw/test
+#  CASTOR::DMP /castor/cern.ch/compass/data/2004/dump/test
+#  #
+#  MON::SOCKETPORT 1234
+#  MON::COLLECTOR pcitapi18
+#  MON::COLLFILE /opt/logs/collector.dat
+#  #MON::COLLFILE /shift/ccf012d/data03/objsrvvy/collector/log
+#  MON::LISTENPORT 1207
+#  MON::WATCHLIST rfiod rfcp ooams
+#  MON::SMUPDATE 120
+#  MON::LMUPDATE 120
+#  MON::PMUPDATE 120
+#  #
+#  ST2::SOCKETPORT 1235
+#  ST2::COLLECTOR  ccf012d
+#  ST2::UPDATE 60
+#  #
+#  BKM pccoeb09 /shift/pccoeb09/data01/objsrvvy/bkm
+#  GDC pccoeb09 /shift/pccoeb09/data01/objsrvvy/cdr port 1401 ID 1009
+#  #
+#  BKM pccoeb10 /shift/pccoeb10/data01/objsrvvy/bkm
+#  GDC pccoeb10 /shift/pccoeb10/data01/objsrvvy/cdr port 1401 ID 1010
+#  #
+#  BKM pccoeb11 /shift/pccoeb11/data01/objsrvvy/bkm
+#  GDC pccoeb11 /shift/pccoeb11/data01/objsrvvy/cdr port 1401 ID 1011
+#  #
+#  BKM pccoeb12 /shift/pccoeb12/data01/objsrvvy/bkm
+#  GDC pccoeb12 /shift/pccoeb12/data01/objsrvvy/cdr port 1401 ID 1012
+#  #
+#  BKM pccoeb13 /shift/pccoeb13/data01/objsrvvy/bkm
+#  GDC pccoeb13 /shift/pccoeb13/data01/objsrvvy/cdr port 1401 ID 1013
+#  #
+#  BKM pccoeb14 /shift/pccoeb14/data01/objsrvvy/bkm
+#  GDC pccoeb14 /shift/pccoeb14/data01/objsrvvy/cdr port 1401 ID 1014
+#  #
+#  BKM pccoeb15 /shift/pccoeb15/data01/objsrvvy/bkm
+#  GDC pccoeb15 /shift/pccoeb15/data01/objsrvvy/cdr port 1401 ID 1015
+#  #
+#  BKM pccoeb16 /shift/pccoeb16/data01/objsrvvy/bkm
+#  GDC pccoeb16 /shift/pccoeb16/data01/objsrvvy/cdr port 1401 ID 1016
+#  #
+#  BKM pccoeb17 /shift/pccoeb17/data01/objsrvvy/bkm
+#  GDC pccoeb17 /shift/pccoeb17/data01/objsrvvy/cdr port 1401 ID 1017
+#  #
+#  BKM pccoeb18 /shift/pccoeb18/data01/objsrvvy/bkm
+#  GDC pccoeb18 /shift/pccoeb18/data01/objsrvvy/cdr port 1401 ID 1018
+#  #
+#  BKM pccoeb19 /shift/pccoeb19/data01/objsrvvy/bkm
+#  GDC pccoeb19 /shift/pccoeb19/data01/objsrvvy/cdr port 1401 ID 1019
+#  #
+#  BKM pccoeb20 /shift/pccoeb20/data01/objsrvvy/bkm
+#  GDC pccoeb20 /shift/pccoeb20/data01/objsrvvy/cdr port 1401 ID 1020
+#  #
+#  BKM pccoeb21 /shift/pccoeb21/data01/objsrvvy/bkm
+#  GDC pccoeb21 /shift/pccoeb21/data01/objsrvvy/cdr port 1401 ID 1021
+#
+#  # CDR selects a CCF server if:
+#  #
+#  # LOAD::RFIOD >= 1
+#  # LOAD::RFCP < 5
+#  # LOAD::OOAMS >= 1
+#  # LOAD::AMSCPU < 50 %
+#  # LOAD::CPU2 < 100 %
+#  # LOAD::DISK > 6000 MB available
+#  #
+#  LOAD::RFIOD 1
+#  LOAD::RFCP 5
+#  LOAD::OOAMS 1
+#  LOAD::AMSCPU 50
+#  LOAD::CPU2 100
+#  LOAD::DISK 3000
+#  #
+#  #BKM lxshare084d  /shift/lxshare084d/data01/objsrvvy/bkm
+#  #CDR lxshare084d  /shift/lxshare084d/data01/objsrvvy/cdr
+#  #
+#  BKM compass005d  /shift/compass005d/data01/objsrvvy/bkm
+#  CDR compass005d  /shift/compass005d/data01/objsrvvy/cdr
+#  CDR compass005d  /shift/compass005d/data02/objsrvvy/cdr
+#  #
+#  BKM compass006d  /shift/compass006d/data01/objsrvvy/bkm
+#  CDR compass006d  /shift/compass006d/data01/objsrvvy/cdr
+#  CDR compass006d  /shift/compass006d/data02/objsrvvy/cdr
+#  #
+#  BKM compass007d  /shift/compass007d/data01/objsrvvy/bkm
+#  CDR compass007d  /shift/compass007d/data01/objsrvvy/cdr
+#  CDR compass007d  /shift/compass007d/data02/objsrvvy/cdr
+#  #
+#  BKM compass008d  /shift/compass008d/data01/objsrvvy/bkm
+#  CDR compass008d  /shift/compass008d/data01/objsrvvy/cdr
+#  CDR compass008d  /shift/compass008d/data02/objsrvvy/cdr
+#  CDR compass008d  /shift/compass008d/data03/objsrvvy/cdr
+#  #
+#  BKM compass009d  /shift/compass009d/data01/objsrvvy/bkm
+#  CDR compass009d  /shift/compass009d/data01/objsrvvy/cdr
+#  CDR compass009d  /shift/compass009d/data02/objsrvvy/cdr
+#  #
+#  BKM compass010d  /shift/compass010d/data01/objsrvvy/bkm
+#  CDR compass010d  /shift/compass010d/data01/objsrvvy/cdr
+#  CDR compass010d  /shift/compass010d/data02/objsrvvy/cdr
+#  #
+#  BKM compass011d  /shift/compass011d/data01/objsrvvy/bkm
+#  CDR compass011d  /shift/compass011d/data01/objsrvvy/cdr
+#  CDR compass011d  /shift/compass011d/data02/objsrvvy/cdr
+#  #
+#  BKM compass012d  /shift/compass012d/data01/objsrvvy/bkm
+#  CDR compass012d  /shift/compass012d/data01/objsrvvy/cdr
+#  CDR compass012d  /shift/compass012d/data02/objsrvvy/cdr
+#  #
+#  BKM compass013d  /shift/compass013d/data01/objsrvvy/bkm
+#  CDR compass013d  /shift/compass013d/data01/objsrvvy/cdr
+#  CDR compass013d  /shift/compass013d/data02/objsrvvy/cdr
+#  #
+#  BKM compass014d  /shift/compass014d/data01/objsrvvy/bkm
+#  CDR compass014d  /shift/compass014d/data01/objsrvvy/cdr
+#  CDR compass014d  /shift/compass014d/data02/objsrvvy/cdr
+#  #
+#  BKM compass016d  /shift/compass016d/data01/objsrvvy/bkm
+#  CDR compass016d  /shift/compass016d/data01/objsrvvy/cdr
+#  CDR compass016d  /shift/compass016d/data02/objsrvvy/cdr
+#  CDR compass016d  /shift/compass016d/data03/objsrvvy/cdr
+#  CDR compass016d  /shift/compass016d/data04/objsrvvy/cdr
+#  CDR compass016d  /shift/compass016d/data05/objsrvvy/cdr
+#  #
+#  BKM compass017d  /shift/compass017d/data01/objsrvvy/bkm
+#  CDR compass017d  /shift/compass017d/data01/objsrvvy/cdr
+#  CDR compass017d  /shift/compass017d/data02/objsrvvy/cdr
+#  CDR compass017d  /shift/compass017d/data03/objsrvvy/cdr
+#  CDR compass017d  /shift/compass017d/data04/objsrvvy/cdr
+#  CDR compass017d  /shift/compass017d/data05/objsrvvy/cdr
+#  #
+#  BKM compass018d  /shift/compass018d/data01/objsrvvy/bkm
+#  CDR compass018d  /shift/compass018d/data01/objsrvvy/cdr
+#  CDR compass018d  /shift/compass018d/data02/objsrvvy/cdr
+#  CDR compass018d  /shift/compass018d/data03/objsrvvy/cdr
+#  CDR compass018d  /shift/compass018d/data04/objsrvvy/cdr
+#  CDR compass018d  /shift/compass018d/data05/objsrvvy/cdr
+#  #
+#  #CKL /usr/spool/local 41777-25817-1665 
+#  CKL /usr/local/compass 41775-25817-1665 
+#  CKL /usr/local/Objectivity 40755-0-0        
+#  #CKL /usr/local/Objectivity/AMS 40755-25817-1665	  
+#  #CKL /usr/local/Objectivity/AMS/pro 40755-25817-1665       
+#  #CKL /usr/local/Objectivity/AMS/3.4.1.0 40755-25817-1665	  
+#  #CKL /usr/local/Objectivity/AMS/ams.conf 100644-25817-1665	    
+#  #CKL /usr/local/specific/redhat61/ObjectSpace 40755-0-0	    
+#  #CKL /usr/local/specific/redhat61/CLHEP 40755-17191-1160	  
+#  #CKL /usr/local/specific/redhat61/HepODBMS 40755-16633-1479       
+#  #CKL /usr/local/specific/redhat61/Objectivity 40755-0-0	  
+#  #CKL /usr/local/ObjectSpace 40755-0-0	 
+#  #
+#  #
+#  CST /usr/local/lib/libshift.a
+#  CST /usr/local/lib/libshift.so
+#  CST /usr/local/lib/libshift.so.CASTOR_VERS
+#  CST /asis.local/i386_redhat61/usr.local/lib/libshift.a
+#  CST /asis.local/i386_redhat61/usr.local/lib/libshift.so
+#  CST /asis.local/i386_redhat61/usr.local/lib/libshift.so.CASTOR_VERS
+#
+
+
+
+

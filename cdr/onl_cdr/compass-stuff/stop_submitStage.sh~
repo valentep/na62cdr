@@ -1,0 +1,10 @@
+#!/bin/bash
+
+export MY_HOST=`hostname -s`
+echo $MY_HOST
+export CCF_ROOT="/online/detector/cdr"
+
+# touch ${CCF_ROOT}/lockfiles/cleanup_online.${MY_HOST}.lock
+# touch ${CCF_ROOT}/lockfiles/complete_online.${MY_HOST}.lock
+# touch ${CCF_ROOT}/lockfiles/interface_online.${MY_HOST}.lock
+touch ${CCF_ROOT}/lockfiles/submitStage0.${MY_HOST}.lock

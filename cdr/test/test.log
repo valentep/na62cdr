@@ -1,0 +1,136 @@
+| DataComplete | TransferStart | TransferStop | TransferComplete | DataLKr | DataStop | DataClear | 
+DEBUG: /home/na62cdr/cdr/test/OnlineDataComplete
+DEBUG ===== cdr00001029-0000.dat.17
+DEBUG: not matched! #### cdr00001029-0000.dat.17
+DEBUG ===== cdr00099920-0002_3.dat
+cdr00099920-0002_3.dat has mask: 64 
+DEBUG ===== cdr00001029-0000.dat.23
+DEBUG: not matched! #### cdr00001029-0000.dat.23
+DEBUG ===== cdr00001029-0000.dat
+cdr00001029-0000.dat has mask: 64 
+DEBUG ===== cdr00001029-0000.dat.6
+DEBUG: not matched! #### cdr00001029-0000.dat.6
+DEBUG ===== cdr00001029-0000.dat.12
+DEBUG: not matched! #### cdr00001029-0000.dat.12
+DEBUG ===== cdr00001029-0000.dat.8
+DEBUG: not matched! #### cdr00001029-0000.dat.8
+DEBUG ===== cdr00099920-0002.dat
+cdr00099920-0002.dat has mask: 64 
+DEBUG ===== cdr00001029-0098.dat
+cdr00001029-0098.dat has mask: 64 
+DEBUG ===== cdr00001029-0000.dat.5
+DEBUG: not matched! #### cdr00001029-0000.dat.5
+DEBUG ===== cdr00001029-0000.dat.22
+DEBUG: not matched! #### cdr00001029-0000.dat.22
+DEBUG ===== .
+DEBUG ===== cdr00001029-0000.dat.13
+DEBUG: not matched! #### cdr00001029-0000.dat.13
+DEBUG ===== cdr00099926-0000.dat
+cdr00099926-0000.dat has mask: 64 
+DEBUG ===== cdr00001029-0000.dat.14
+DEBUG: not matched! #### cdr00001029-0000.dat.14
+DEBUG ===== cdr00001029-0000.dat.18
+DEBUG: not matched! #### cdr00001029-0000.dat.18
+DEBUG ===== ..
+DEBUG ===== cdr00099920-0000.dat
+cdr00099920-0000.dat has mask: 64 
+DEBUG ===== cdr00001029-0000.dat.19
+DEBUG: not matched! #### cdr00001029-0000.dat.19
+DEBUG ===== cdr00099920-0002_4.dat
+cdr00099920-0002_4.dat has mask: 64 
+DEBUG ===== cdr00001029-0000.dat.26
+DEBUG: not matched! #### cdr00001029-0000.dat.26
+DEBUG ===== cdr00001029-0000.dat.7
+DEBUG: not matched! #### cdr00001029-0000.dat.7
+DEBUG ===== cdr00099920-0001.dat
+cdr00099920-0001.dat has mask: 64 
+DEBUG ===== cdr00001029-0000.dat.21
+DEBUG: not matched! #### cdr00001029-0000.dat.21
+DEBUG ===== cdr00001029-0000.dat.20
+DEBUG: not matched! #### cdr00001029-0000.dat.20
+DEBUG ===== cdr00001029-0000.dat.27
+DEBUG: not matched! #### cdr00001029-0000.dat.27
+DEBUG ===== cdr00099920-0002_2.dat
+cdr00099920-0002_2.dat has mask: 64 
+DEBUG ===== cdr00001029-0000.dat.4
+DEBUG: not matched! #### cdr00001029-0000.dat.4
+DEBUG ===== cdr00001029-0000.dat.25
+DEBUG: not matched! #### cdr00001029-0000.dat.25
+DEBUG ===== cdr00001029-0000.dat.10
+DEBUG: not matched! #### cdr00001029-0000.dat.10
+DEBUG ===== cdr00001029-0000.dat.2
+DEBUG: not matched! #### cdr00001029-0000.dat.2
+DEBUG ===== cdr00001029-0000.dat.16
+DEBUG: not matched! #### cdr00001029-0000.dat.16
+DEBUG ===== cdr00001029-0000.dat.3
+DEBUG: not matched! #### cdr00001029-0000.dat.3
+DEBUG ===== cdr00099920-0002_5.dat
+cdr00099920-0002_5.dat has mask: 64 
+DEBUG ===== cdr00001029-0000.dat.15
+DEBUG: not matched! #### cdr00001029-0000.dat.15
+DEBUG ===== cdr00001029-0000.dat.9
+DEBUG: not matched! #### cdr00001029-0000.dat.9
+DEBUG ===== cdr00001029-0000.dat.11
+DEBUG: not matched! #### cdr00001029-0000.dat.11
+DEBUG ===== cdr00001029-0000.dat.24
+DEBUG: not matched! #### cdr00001029-0000.dat.24
+DEBUG: /home/na62cdr/cdr/test/OnlineTransferStart
+DEBUG ===== cdr00001029-0000.dat
+already found: cdr00001029-0000.dat (cdr00001029-0000.dat) delta=0
+ not skipped cdr00001029-0000.dat -> 32
+DEBUG ===== cdr00001029-0098.dat
+already found: cdr00001029-0098.dat (cdr00001029-0098.dat) delta=0
+ not skipped cdr00001029-0098.dat -> 32
+DEBUG ===== .
+DEBUG ===== ..
+DEBUG: /home/na62cdr/cdr/test/OnlineTransferStop
+DEBUG ===== cdr00001029-0000.dat
+already found: cdr00001029-0000.dat (cdr00001029-0000.dat) delta=0
+ not skipped cdr00001029-0000.dat -> 16
+DEBUG ===== cdr00001029-0098.dat
+already found: cdr00001029-0098.dat (cdr00001029-0098.dat) delta=0
+ not skipped cdr00001029-0098.dat -> 16
+DEBUG ===== .
+DEBUG ===== ..
+DEBUG: /home/na62cdr/cdr/test/OnlineTransferComplete
+DEBUG ===== cdr00001029-0098.dat
+already found: cdr00001029-0098.dat (cdr00001029-0098.dat) delta=0
+ not skipped cdr00001029-0098.dat -> 8
+DEBUG ===== .
+DEBUG ===== ..
+DEBUG: /home/na62cdr/cdr/test/OnlineDataLKr
+DEBUG ===== .
+DEBUG ===== ..
+DEBUG: /home/na62cdr/cdr/test/OnlineDataStop
+DEBUG ===== cdr00002006-0000.dat
+cdr00002006-0000.dat has mask: 2 
+DEBUG ===== cdr00002008-0000.dat
+cdr00002008-0000.dat has mask: 2 
+DEBUG ===== .
+DEBUG ===== ..
+DEBUG ===== cdr00002008-0002.dat
+cdr00002008-0002.dat has mask: 2 
+DEBUG ===== cdr00002008-0001.dat
+cdr00002008-0001.dat has mask: 2 
+DEBUG ===== this_file_should_not_stay_here
+DEBUG: not matched! #### this_file_should_not_stay_here
+DEBUG ===== cdr00002400-3221.dat
+cdr00002400-3221.dat has mask: 2 
+DEBUG: /home/na62cdr/cdr/test/OnlineDataClear
+DEBUG ===== .
+DEBUG ===== ..
+cdr00002008-0000.dat mask: 0000010
+cdr00099920-0002.dat mask: 1000000
+cdr00099920-0001.dat mask: 1000000
+cdr00099920-0000.dat mask: 1000000
+cdr00099920-0002_2.dat mask: 1000000
+cdr00001029-0098.dat mask: 1111000
+cdr00099926-0000.dat mask: 1000000
+cdr00099920-0002_5.dat mask: 1000000
+cdr00002400-3221.dat mask: 0000010
+cdr00002008-0001.dat mask: 0000010
+cdr00002008-0002.dat mask: 0000010
+cdr00001029-0000.dat mask: 1110000
+cdr00099920-0002_3.dat mask: 1000000
+cdr00002006-0000.dat mask: 0000010
+cdr00099920-0002_4.dat mask: 1000000

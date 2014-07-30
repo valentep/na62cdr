@@ -1,0 +1,1 @@
+insert into run (number,runtype_id) select run_number,'0' from file f on duplicate key update number=f.run_number;

@@ -1,0 +1,86 @@
+#########################################################################
+#
+# CCF configuration file
+#
+#########################################################################
+# $Id: setup.dat.2004,v 1.1 2004/05/04 17:52:59 neyret Exp $
+#
+# Valid keywords start in column 1
+#
+# RCC defines the run control console (the machine sync the GDCs)
+# GDC fake global data collector specifications (online event builder)
+#     port = socket to receive commands from the run control console
+#     ID = GDC ID (used to identify the source and to label datafiles)
+# BKM bookmark root directory
+# CDR target directory for online data (CCF machines)
+# RAW target directory for database of raw data
+# CPU list of CPU clients machines
+# RID remote installation directory for local copies of ccf software on all nodes
+# REP the location of compass repository 
+#
+# RCC <hostname>
+# GDC <hostname> <online_data_dir> port <port> ID <ID>
+# BKM <hostname> <online_data_dir>
+# CDR <hostname> <online_data_dir>
+# RAW <hostname> <online_data_dir>
+#
+# FDB::BOOT boot file name (full path)
+#
+# <online_data_dir> is of the form:
+# /roco/<hostname>/data<nn>/objsrvvy/bkm for online machines
+# /roco/<hostname>/data<nn>/objsrvvy/cdr for online machines
+# /shift/<hostname>/data<nn>/objsrvvy/bkm for CCF machines
+# /shift/<hostname>/data<nn>/objsrvvy/cdr for CCF machines
+# /shift/<hostname>/data<nn>/objsrvvy/na58 for CCF machines
+#
+# The socket port to be used to collect the monitor information
+# and the host name of the collector machine have to be provided 
+# like this
+# MON::SOCKETPORT 1234
+# MON::COLLECTOR mypc
+# MON::LISTENPORT port for sysmon incoming requests
+# MON::WATCHLIST rfiod rfcp ooams 
+#                      programs to be counted by sysmon
+# MON::SMUPDATE 120 Sysmon data update frequency in seconds
+# MON::LMUPDATE 120 Lockmon repetition rate in seconds
+# MON::PMUPDATE 120 Procmon repetition rate in seconds
+# You are supposed to change them only before starting a simulation...
+#
+# The socket port to be used to collect the stage2watch
+# and the host name of the collector machine (running
+# submitStage3) have to be provided like this
+# ST2::SOCKETPORT 1235
+# ST2::COLLECTOR mypc
+# ST2::LISTENPORT port for sysmon incoming requests
+# ST2::UPDATE 120 Procmon repetition rate in seconds
+# You are supposed to change them only before starting a simulation...
+#
+# If you use COF simulation, you should specify number of events
+# and mean size (in kB) using the following keys:
+# COF::NEVENT
+# COF::KBSIZE
+# Also the run duration in seconds should be provided
+# COF::RUNTIME
+# and the first run number
+# COF::RUNNUMBER
+#
+# LHCXXTOP is the lhc software top directory
+# RID remote installation directory for local copies of ccf software on all nodes
+# REP the location of compass repository 
+#
+#########################################################################
+#
+#  entries for 2012
+#
+#
+#
+BKM na62merger /merger/bkm
+#
+GDC na62merger /merger/cdr port 1401 ID 1012
+#
+#
+CASTOR::RAW /castor/cern.ch/na62/data/2013/raw/tmp
+#
+CASTOR::HOSTRAW na62merger /castor/cern.ch/na62/data/2013/raw/tmp
+#
+

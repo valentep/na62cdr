@@ -78,7 +78,7 @@ sub getDirMask_mod(){
 		}else {
 		    if ($entry eq "." || $entry eq ".."){ 
 		    }else{ 
-#			print "DEBUG: not matched! #### ",$entry,"\n";
+			print "DEBUG: not matched! #### ",$entry,"\n";
 		    }
 		}
 	    }
