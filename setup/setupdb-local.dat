@@ -1,0 +1,4 @@
+DB::HOST na62merger-in
+DB::PORT 3306
+DB::USER cdr
+DB::PW na62cdr-cdr-user
