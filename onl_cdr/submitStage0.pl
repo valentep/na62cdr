@@ -83,20 +83,20 @@ my(@cmdarg);
 
 # Checks/prepare bkm rootdir
 $bkmrootdir = $bkm_dir;
-if(!(-d $bkmrootdir)) {die "$0: bkmrootdir does not exist\n";}
+if(!(-d $bkmrootdir)) {die "$0: $bkmrootdir does not exist\n";}
 
 # Checks/prepare bkm stopdir
 $bkmstopdir = $bkmrootdir."/OnlineDataComplete";
-if(!(-d $bkmstopdir)) {die "$0: bkmstopdir does not exist\n";}
+if(!(-d $bkmstopdir)) {die "$0: $bkmstopdir does not exist\n";}
 
 # Checks/prepare bkm submitdir
 $bkmsubmitdir = $bkmrootdir."/OnlineTransferStart";
-if(!(-d $bkmsubmitdir)) {die "$0: bkmsubmitdir does not exist\n";}
+if(!(-d $bkmsubmitdir)) {die "$0: $bkmsubmitdir does not exist\n";}
 
 # Checks/prepare bkm submitdir
 my($bkmenddir);
 $bkmenddir = $bkmrootdir."/OnlineTransferStop";
-if(!(-d $bkmenddir)) {die "$0: bkmsubmitdir does not exist\n";}
+if(!(-d $bkmenddir)) {die "$0: $bkmenddir does not exist\n";}
 
 # Sleep time after a successful cleanup and a empty search
 my($lastsearch) = 0;

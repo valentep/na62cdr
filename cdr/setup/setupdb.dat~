@@ -1,4 +1,0 @@
-DB::HOST dbod-na62cdr.cern.ch
-DB::PORT 5501
-DB:USER cdr
-DB:PW na62cdr-cdr-user

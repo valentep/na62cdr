@@ -1,5 +1,0 @@
-#0,29,45 * * * * KRB5CCNAME=FILE:/tmp/krb5cc_42703_1s353x krenew
-0,10,20,30,40,50 * * * * source /home/na62cdr/cdr/onl_cdr/setup_env.sh; /home/na62cdr/cdr/onl_cdr/mymaster_cron.pl >> /tmp/ccf/onl_cdr/master.log
-3,33 * * * * source /home/na62cdr/cdr/onl_cdr/setup_env.sh; /home/na62cdr/cdr/onl_cdr/inspect_online.pl > /tmp/ccf/cdr/inspect.log 2>&1
-30 * * * * source /home/na62cdr/cdr/onl_cdr/setup_env.sh; /home/na62cdr/cdr/onl_cdr/logwrapper.pl > /dev/null 2>&1
-#8,18,28,38,48,58 * * * * /usr/bin/k5start -U -f ~/na62cdr.keytab -b -K 60 -l 61m -- sh -c 'echo $KRB5CCNAME > ~/na62cdr-test.log'

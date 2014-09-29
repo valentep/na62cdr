@@ -58,13 +58,17 @@
 #########################################################################
 #
 BKM na62merger /merger/bkm
+BKM na62merger3 /merger/bkm
 #
 GDC na62merger /merger/cdr port 1401 ID 1012
+GDC na62merger3 /merger/cdr port 1401 ID 1012
 #
 DATA::YEAR na62merger 2013
+DATA::YEAR na62merger3 2014
 DATA::DIR na62merger /merger/cdr
+DATA::DIR na62merger3 /merger/cdr
 #
-CASTOR::RAW /castor/cern.ch/na62/data/2013/raw/tmp
+#CASTOR::RAW /castor/cern.ch/na62/data/2013/raw/tmp
 CASTOR::HOSTRAW na62merger /castor/cern.ch/na62/data/2013/raw/tmp
 #
 CASTOR::STAGE_HOST na62merger castorpublic
@@ -72,9 +76,25 @@ CASTOR::SVCCLASS na62merger na62
 CASTOR::STAGE_POOL na62merger na62
 CASTOR::RFIO_USE_CASTOR_V2 na62merger YES
 #
+# na62merger3
+#
+CASTOR::STAGE_HOST na62merger3 castorpublic
+CASTOR::SVCCLASS na62merger3 na62
+CASTOR::STAGE_POOL na62merger3 na62
+CASTOR::RFIO_USE_CASTOR_V2 na62merger3 YES
+#
 GENERAL::RAWDATAMIGR_TIMEOUT na62merger 1800
 GENERAL::RAWDATAMIGR_COMMAND na62merger rfcp
 #
+# let's try EOS on na62merger3...
+#
+GENERAL::RAWDATAMIGR_TIMEOUT na62merger3 1800
+GENERAL::RAWDATAMIGR_COMMAND na62merger3 xrdcp
+CASTOR::HOSTRAW na62merger3 root://eosna62.cern.ch//eos/na62/data/2014/
+#
 GENERAL::LOGSDIR na62merger /merger/logs
+GENERAL::LOGSDIR na62merger3 /merger/logs
 GENERAL::WAITSHORT na62merger 5
+GENERAL::WAITSHORT na62merger3 5
 GENERAL::WAITLONG na62merger 60
+GENERAL::WAITLONG na62merger3 60

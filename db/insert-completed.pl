@@ -58,12 +58,10 @@ my($bkmrootdir) = $bkm_dir;
 my($bkmstartdir)    = "$bkmrootdir/OnlineTransferStart";
 my($bkmstopdir)     = "$bkmrootdir/OnlineTransferStop";
 my($bkmcompletedir) = "$bkmrootdir/OnlineTransferComplete";
-my($bkmdatadonedir) = "$bkmrootdir/OnlineDataComplete";
 
 print "bkmstartdir:          $bkmstartdir\n";
 print "bkmstopdir:           $bkmstopdir\n";
 print "bkmcompletedir:       $bkmcompletedir\n";
-print "bkmdatadonedir:       $bkmdatadonedir\n";
 
 print "===============================================================\n";
 print "Parsing setup DB file: $setupdbfile\n";
@@ -80,47 +78,19 @@ print "===============================================================\n";
 print "Connecting to $thedb... \n";
 my $connect = DBI->connect($thedb, $dbuser, $pw) or die "Connection Error: $DBI::errstr\n";
 
-my(%the_list) = getDirMask_mod("$bkmdatadonedir","$datadir");
+#my(%the_list) = getDirMask_mod("$bkmstartdir","$bkmstopdir","$bkmcompletedir","$datadir");
+my(%the_list) = getDirMask_mod("$datadir");
 
 print "===============================================================\n";
 foreach (keys %the_list) {
-    my $flag=$the_list{$_}[0]; 
-    print "DEBUG:: $flag ::\n";
-    if($flag eq "11" || $flag eq "01" ) { 
-	my $f=$_;
-	my $thisisthefile = "$datadir/$f";	
+#    if($the_list{$_}[0] eq "1111") { 
+    if($the_list{$_}[0] eq "1") { 
+	my $thisisthefile = "$datadir/$_";
 	my @disk_stat = ls_stat_full($thisisthefile);
 	my $filesize=$disk_stat[1];
 	my $filecrea=timelocal_to_dbtime($disk_stat[2]);
-	my $timestamp="3000-01-01 00:00:00";
-	my $fsize=$filesize;
 	print "Processing file: $thisisthefile\n";
-	if($flag eq "11") { 
-	    my $source="$bkmdatadonedir/$f";	
-	    if(!(-e $source)) {
-		die "$0: Propagate error: $source";
-	    }
-	    open (IN,$source) || die "$0: cannot open $source for reading: $!";
-	    my @lines =  <IN>;
-	    if(!defined($lines[0]) || !defined($lines[1]) || !defined($lines[2])) {
-		print "Invalid $source file!\n\n";
-	    }else{
-		$lines[2] =~ /datetime\:+\s+([\d]+)\-([\d]+)\-([\d]+)\_([\d]+):([\d]+)\:([\d]+)/;
-		my $yy=$3+2000;
-		$timestamp="$yy-$2-$1 $4:$5:$6";
-		$lines[1] =~ /size\:+\s+([\d]+)/;
-		my $fsize = $1;
-		if($fsize != $filesize){
-		    print "Warning: Different file size ($fsize) in $source!\n\n";
-		} 
-		my $fname=$lines[0];
-		chomp $fname;
-		if(!($fname eq $thisisthefile)){
-		    print "Different file name ($fname) in $source!\n\n";
-		} 
-	    } 
-	} 
-	insert_file_entry($connect,$thisisthefile,$timestamp,$filecrea,$fsize);
+	insert_file_entry($connect,$thisisthefile);
     }
 }
 
@@ -131,9 +101,6 @@ foreach (keys %the_list) {
 sub insert_file_entry(){
     my $conn=$_[0];
     my $currentfilename=$_[1];
-    my $timestamp=$_[2];
-    my $filecreatime=$_[3];
-    my $fsize=$_[4];
     (my $fileonly,my $filedir,my $fileext) = fileparse($currentfilename, qr/\.[^.]*/);
     print "Path: $filedir, Name: $fileonly\n";
     
@@ -144,32 +111,28 @@ sub insert_file_entry(){
     
     (my $merger_n, my $run_n, my $burst_n)=get_fileinfo($fileonly);
     print "Merger: $merger_n, Run: $run_n, Burst: $burst_n\n\n"; 
-    my $isdebug=0;
-    if ($merger_n==0){
-	$isdebug=1;
-    }    
-    update_run($conn,$run_n,$timestamp,$filetypeid);
+    
     if ($filedir eq ($datadir."/")){
 	
     }else{
 	print "ERROR: current data dir: $datadir NOT MATCHING with $filedir for file $fileonly$fileext\n\n";
     }
     
+    my @disk_stat = ls_stat_full($currentfilename);
+    my $filecrea=$disk_stat[2];
+    my $filesize=$disk_stat[1];
     my $fileuri="file://".$thishost.$currentfilename;
     
-    eval { 
-	insert_file($conn,$fileonly,"1",$timestamp,$filetypeid,$run_n,$burst_n);
-    }; warn "Error in inserting new UNIQUE record in FILE table" if $@;
-
-    my $trun=get_run($conn,$run_n);
-    my $run_id=$$trun{'id'};
+    (my $sec,my $min,my $hour,my $mday,my $mon,my $year,my $wday, my $yday, my $isdst) = localtime($filecrea);
+    my $yyear=1900+$year;
+    my $filecreatime="$yyear-$mon-$mday $hour:$min:$sec\n";
     
     eval { 
-	update_burst($conn,$burst_n,$isdebug,$timestamp,$run_id,$run_n);
-    }; warn "Error in inserting new UNIQUE record in FILECOPY table" if $@;   
-
+	insert_file($conn,$fileonly,"1",$filecreatime,$filetypeid,$run_n,$burst_n);
+    }; warn "Error in inserting new UNIQUE record in FILE table" if $@;
+    
     eval { 
-	insert_filecopy($conn,$fileonly,$fileuri,$filecreatime,$fsize);
+	insert_filecopy($conn,$fileonly,$fileuri,$filecreatime,$filesize);
     }; warn "Error in inserting new UNIQUE record in FILECOPY table" if $@;   
 } 
 
