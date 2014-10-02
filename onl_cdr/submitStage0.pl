@@ -13,8 +13,8 @@ use Time::Local;
 use Sys::Hostname;   # Uli
 #
 
-my($CCF_ROOT) = `grep CCF_ROOT $ENV{HOME}/.ccfrc | sed 's/CCF_ROOT//' | sed 's/ //g'`;
-defined $CCF_ROOT || die "Home directory CCF_ROOT not found in configuration file $ENV{HOME}/.ccfrc";
+my($CCF_ROOT) = `grep CCF_ROOT /merger/etc/.ccfrc | sed 's/CCF_ROOT//' | sed 's/ //g'`;
+defined $CCF_ROOT || die "Home directory CCF_ROOT not found in configuration file /merger/etc/.ccfrc";
 chomp($CCF_ROOT);
 print "===============================================================\n";
 print "===============================================================\n";

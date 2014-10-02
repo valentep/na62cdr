@@ -14,8 +14,8 @@ sub main::ps_check;
 sub main::kill_daemons();
 sub main::start_daemons();
 
-my($CCF_ROOT) = `grep CCF_ROOT $ENV{HOME}/.ccfrc | sed 's/CCF_ROOT//' | sed 's/ //g'`;
-defined $CCF_ROOT || die "Home directory CCF_ROOT not found in configuration file $ENV{HOME}/.ccfrc";
+my($CCF_ROOT) = `grep CCF_ROOT /merger/etc/.ccfrc | sed 's/CCF_ROOT//' | sed 's/ //g'`;
+defined $CCF_ROOT || die "Home directory CCF_ROOT not found in configuration file /merger/etc/.ccfrc";
 chomp($CCF_ROOT);
 print "===============================================================\n";
 print "===============================================================\n";
@@ -41,6 +41,8 @@ my($user) = getUser_mod($usersfile);
 #my $user="na62cdr";
 my($logdir) = getLogsDir("-quiet",$setupfile);
 
+my $kerb_string = "/usr/bin/k5start -U -f /merger/etc/na62cdr.keytab -b -K 60 -l 61m -- ";
+
 
 ################################################################################
 # Fill in program information here
@@ -48,8 +50,8 @@ my($logdir) = getLogsDir("-quiet",$setupfile);
 
 #push @{$controlhash{1}},"onl_cdr/interface_online.pl",1;
 push @{$controlhash{2}},"onl_cdr/launch_submitStage0.sh",1;
-push @{$controlhash{3}},"onl_cdr/complete_online.pl",1; 
-push @{$controlhash{4}},"onl_cdr/cleanup_online.pl",1;
+###push @{$controlhash{3}},"onl_cdr/complete_online.pl",1; 
+###push @{$controlhash{4}},"onl_cdr/cleanup_online.pl",1;
 
 ################################################################################
 ################################################################################
@@ -127,8 +129,8 @@ sub start_daemons(){
 	    next;
 	}
 	system "touch $log" unless(-e $log);
-	print "$CCF_ROOT/$controlhash{$_}[0] >> $log 2>&1 &\n";
-	system "$CCF_ROOT/$controlhash{$_}[0] >> $log 2>&1 &\n";
+	print "$kerb_string $CCF_ROOT/$controlhash{$_}[0]\n";
+	system "$kerb_string $CCF_ROOT/$controlhash{$_}[0]\n";
 	sleep(2);
 	push @to_gsm,"start $_ // ";
     }
