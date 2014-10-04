@@ -61,6 +61,15 @@ if ($castorusev2 eq "YES") {
     die "You must choose Castor-2 protocol in setup file: $setupfile";
 }
 
+
+
+
+
+$ENV{NA62CASTOR}="/castor/cern.ch/na62/";
+
+
+
+
 my(@bkm_entry) = ();
 my(%bkm_entry) = ();
 %bkm_entry = bkm_dir("-quiet",$setupfile);
@@ -156,10 +165,17 @@ while() {
     }
     print "Found $nready bookmarks ready\n";
     system "touch $statusOKFileName";
+
+    system "tokens";
+    print "\n";
+    system "env";
+    print "\n";
     print "$0: Before next cycle... sleep $waittime s\n";
     sleep($waittime);
 
     print "Looping...  date= ".`date`;
+    system "env > /tmp/env.txt";
+#    die "I die\n";
     for (@ready) {
       if(-e "$lock_file") {
 	system "touch $statusErrorFileName";
@@ -293,8 +309,6 @@ while() {
       close (OUT);
       system "touch $statusOKFileName";
       print "File $candidate sent to tape...\n";
-      print "DEBUG remember to remove sleep\n";
-      sleep 60;
   }
 }
 

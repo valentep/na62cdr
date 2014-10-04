@@ -30,6 +30,7 @@ $#ARGV == 0 && ($mode=$ARGV[0]);
 die "Unknown option $mode" unless ($mode eq "-verbose" || $mode eq "-quiet");
 
 my %controlhash=qw();
+my %wrapperhash=qw();
 my @to_gsm=();
 
 my($setupfile) = "$CCF_ROOT/setup/setup.dat";
@@ -41,15 +42,22 @@ my($user) = getUser_mod($usersfile);
 #my $user="na62cdr";
 my($logdir) = getLogsDir("-quiet",$setupfile);
 
-my $kerb_string = "/usr/bin/k5start -U -f /merger/etc/na62cdr.keytab -b -K 60 -l 61m -- ";
+#my $kerb_string = "/usr/bin/k5start -U -f /merger/etc/na62cdr.keytab -b -K 60 -l 61m -- ";
 
+system "rm -f /afs/cern.ch/user/n/na62cdr/www/ps.txt";
+system "date >> /afs/cern.ch/user/n/na62cdr/www/ps.txt";
+system "hostname >> /afs/cern.ch/user/n/na62cdr/www/ps.txt";
+system "ps -ef | grep na62 >> /afs/cern.ch/user/n/na62cdr/www/ps.txt";
+
+my $kerb_string = "";
 
 ################################################################################
 # Fill in program information here
 # ID as hash key, Commandline, No. of instances
 
 #push @{$controlhash{1}},"onl_cdr/interface_online.pl",1;
-push @{$controlhash{2}},"onl_cdr/launch_submitStage0.sh",1;
+push @{$controlhash{1}},"onl_cdr/submitStage0.pl",1;
+push @{$wrapperhash{1}},"onl_cdr/launch_submitStage0.sh",1;
 ###push @{$controlhash{3}},"onl_cdr/complete_online.pl",1; 
 ###push @{$controlhash{4}},"onl_cdr/cleanup_online.pl",1;
 
@@ -129,8 +137,8 @@ sub start_daemons(){
 	    next;
 	}
 	system "touch $log" unless(-e $log);
-	print "$kerb_string $CCF_ROOT/$controlhash{$_}[0]\n";
-	system "$kerb_string $CCF_ROOT/$controlhash{$_}[0]\n";
+	print "$kerb_string $CCF_ROOT/$wrapperhash{$_}[0]\n";
+	system "$kerb_string $CCF_ROOT/$wrapperhash{$_}[0]\n";
 	sleep(2);
 	push @to_gsm,"start $_ // ";
     }
