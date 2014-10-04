@@ -44,11 +44,6 @@ my($logdir) = getLogsDir("-quiet",$setupfile);
 
 #my $kerb_string = "/usr/bin/k5start -U -f /merger/etc/na62cdr.keytab -b -K 60 -l 61m -- ";
 
-system "rm -f /afs/cern.ch/user/n/na62cdr/www/ps.txt";
-system "date >> /afs/cern.ch/user/n/na62cdr/www/ps.txt";
-system "hostname >> /afs/cern.ch/user/n/na62cdr/www/ps.txt";
-system "ps -ef | grep na62 >> /afs/cern.ch/user/n/na62cdr/www/ps.txt";
-
 my $kerb_string = "";
 
 ################################################################################
