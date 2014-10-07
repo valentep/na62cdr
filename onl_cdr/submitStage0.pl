@@ -165,8 +165,7 @@ while() {
     }
     print "Found $nready bookmarks ready\n";
     system "touch $statusOKFileName";
-
-    system "tokens";
+    system "klist";
     print "\n";
     system "env";
     print "\n";
